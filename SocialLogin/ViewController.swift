@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
@@ -36,7 +37,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     func handleCustomFBLogin() {
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
             if err != nil {
-                print("Custom FB Login failed", err)
+                print("Custom FB Login failed", err ?? "")
                 return
             }
             self.showEmailAddress()
@@ -57,12 +58,24 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func showEmailAddress() {
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
-            if err != nil {
-                print("Failed to start graph requestt:", err)
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else {
+            return
+        }
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        Auth.auth().signIn(with: credentials) { (user, error) in
+            if error != nil {
+                print("Something went wrong with our FB User: ", error ?? "")
                 return
             }
-            print(result)
+            print("Successfully logged in with our user: ", user ?? "")
+        }
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+            if err != nil {
+                print("Failed to start graph requestt:", err ?? "")
+                return
+            }
+            print(result ?? "")
             
             
         }

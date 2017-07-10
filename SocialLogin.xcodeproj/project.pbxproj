@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		318DB9A51F14455E00A62E77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 318DB9A41F14455E00A62E77 /* GoogleService-Info.plist */; };
 		31B450891F13DE0900009052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B450881F13DE0900009052 /* AppDelegate.swift */; };
 		31B4508B1F13DE0900009052 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4508A1F13DE0900009052 /* ViewController.swift */; };
 		31B4508E1F13DE0900009052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B4508C1F13DE0900009052 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		1838265E8653967E76030479 /* Pods-SocialLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialLogin/Pods-SocialLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		318D59E91F13E7780027D144 /* SocialLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialLogin.entitlements; sourceTree = "<group>"; };
+		318DB9A41F14455E00A62E77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31B450851F13DE0900009052 /* SocialLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B450881F13DE0900009052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31B4508A1F13DE0900009052 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		318DB9A11F14453800A62E77 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31B450881F13DE0900009052 /* AppDelegate.swift */,
+				31B4508A1F13DE0900009052 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		318DB9A21F14454500A62E77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31B4508C1F13DE0900009052 /* Main.storyboard */,
+				31B450911F13DE0900009052 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		318DB9A31F14454A00A62E77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		31B4507C1F13DE0900009052 = {
 			isa = PBXGroup;
 			children = (
@@ -63,11 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				318D59E91F13E7780027D144 /* SocialLogin.entitlements */,
-				31B450881F13DE0900009052 /* AppDelegate.swift */,
-				31B4508A1F13DE0900009052 /* ViewController.swift */,
-				31B4508C1F13DE0900009052 /* Main.storyboard */,
+				318DB9A31F14454A00A62E77 /* Model */,
+				318DB9A21F14454500A62E77 /* View */,
+				318DB9A11F14453800A62E77 /* Controller */,
 				31B4508F1F13DE0900009052 /* Assets.xcassets */,
-				31B450911F13DE0900009052 /* LaunchScreen.storyboard */,
+				318DB9A41F14455E00A62E77 /* GoogleService-Info.plist */,
 				31B450941F13DE0900009052 /* Info.plist */,
 			);
 			path = SocialLogin;
@@ -159,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B450931F13DE0900009052 /* LaunchScreen.storyboard in Resources */,
+				318DB9A51F14455E00A62E77 /* GoogleService-Info.plist in Resources */,
 				31B450901F13DE0900009052 /* Assets.xcassets in Resources */,
 				31B4508E1F13DE0900009052 /* Main.storyboard in Resources */,
 			);
