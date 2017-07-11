@@ -9,6 +9,7 @@ pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 
 pod 'Firebase/Auth'
+pod 'GoogleSignIn'
   # Pods for SocialLogin
 
 end

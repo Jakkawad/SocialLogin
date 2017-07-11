@@ -9,8 +9,9 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import GoogleSignIn
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,27 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         view.addSubview(customFBButton)
         customFBButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
+        
+        //add custom google login button
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x: 16, y: 116 + 66, width: view.frame.width - 32, height: 50)
+        view.addSubview(googleButton)
+        
+        //custom
+        let customGoogleButton = UIButton(type: .system)
+        customGoogleButton.frame = CGRect(x: 16, y: 116 + 66 + 66, width: view.frame.width - 32, height: 50)
+        customGoogleButton.backgroundColor = .orange
+        customGoogleButton.setTitle("Custom Google Sign In", for: .normal)
+        customGoogleButton.addTarget(self, action: #selector(handleCustomGoogleSignIn), for: .touchUpInside)
+        view.addSubview(customGoogleButton)
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    func handleCustomGoogleSignIn() {
+        GIDSignIn.sharedInstance().signIn()
+    }
     func handleCustomFBLogin() {
         FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self) { (result, err) in
             if err != nil {
